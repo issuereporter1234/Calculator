@@ -31,12 +31,12 @@ document.querySelectorAll('button').forEach(button => {
         buttonText = button.innerText
         if(i === 0 && !isNaN(buttonText) && (operator === undefined || operator === null)){
             display.innerText = buttonText
-            x = buttonText
+            x = display.innerText
             ++i
         }
         else if(!isNaN(buttonText) && (operator === undefined || operator === null)){
             display.innerText += buttonText
-            x += buttonText 
+            x = display.innerText 
             
         }
         else if(buttonText === '+' || buttonText === '-' || buttonText === '*' || buttonText === ':'){
@@ -47,14 +47,16 @@ document.querySelectorAll('button').forEach(button => {
         }
         else if (i !== 0 && !isNaN(buttonText) && (operator !== undefined || operator !== null)){
             display.innerText = buttonText
-            y = buttonText
+            y = display.innerText
             i = 0
         }
         else if(!isNaN(buttonText) && (operator !== undefined || operator !== null)){
             display.innerText += buttonText
-            y += buttonText
+            y = display.innerText
         }
-        
+        else if(buttonText === '.'){
+            display.innerText += '.'
+        }
         else if (buttonText === '='){
 
             display.innerText = operate(Number(x), operator, Number(y))
@@ -62,7 +64,7 @@ document.querySelectorAll('button').forEach(button => {
             operator = null
         }
         else if (buttonText === 'Clear'){
-            
+            i = 0
             x = 0
             y = 0
             operator = null

@@ -13,5 +13,5 @@ body{
     grid-template-rows: auto auto auto auto
 }
 #num-0{
-    grid-column: span 3;
+    grid-column: span 2;
 }
