@@ -58,9 +58,11 @@ document.querySelectorAll('button').forEach(button => {
         else if (buttonText === '='){
 
             display.innerText = operate(Number(x), operator, Number(y))
+            i = 0
+            operator = null
         }
         else if (buttonText === 'Clear'){
-            i = 0
+            
             x = 0
             y = 0
             operator = null
